@@ -14,7 +14,7 @@ export default function Navbar() {
                     <Link component="button" className={styles.link} to="/login">GİRİŞ YAP</Link>
                 </Button>
                 <Button variant="text" color='secondary'>
-                    <Link component="button" className={styles.link} to="/signup">ÜYE OL</Link>
+                    <Link component="button" className={styles.link} to="/signup">Üye Ol</Link>
                 </Button>
             </Toolbar>
         </AppBar>
