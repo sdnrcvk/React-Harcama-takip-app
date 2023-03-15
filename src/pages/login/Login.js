@@ -8,7 +8,7 @@ export default function Login() {
   const [values,setValues]=useState({
     email:"",
     password:"",
-    showPassword:"false"
+    showPassword:false
   })
 
 
@@ -41,7 +41,7 @@ export default function Login() {
           <FilledInput type={values.showPassword ? "text" : "password"} value={values.password} onChange={handleChange("password")}
            id="password" label="Password" endAdornment={
            <InputAdornment position='end'>
-              <IconButton aria-label='Toggle Password' onClick={handleClickShowPassword}>{values.showPassword ? <VisibilityOff/> : <Visibility/>}</IconButton>
+              <IconButton aria-label='Toggle Password' onClick={handleClickShowPassword}>{values.showPassword ? <Visibility/> : <VisibilityOff/>}</IconButton>
            </InputAdornment>}/>
         </FormControl>
         <Button variant='outlined' type='submit' color='info' size='large' sx={{mt:5}}>GİRİŞ</Button>
