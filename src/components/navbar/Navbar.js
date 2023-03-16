@@ -1,8 +1,11 @@
 import styles from './Navbar.module.css'
 import { AppBar, Toolbar, Box, Typography, Button } from "@mui/material"
 import { Link } from 'react-router-dom'
+import { useLogout } from '../../hooks/useLogout'
 
 export default function Navbar() {
+    const {logout}=useLogout();
+
   return (
     <Box sx={{flexGrow:1}}>
         <AppBar position='static' color='primary'>
@@ -15,6 +18,9 @@ export default function Navbar() {
                 </Button>
                 <Button variant="text" color='secondary'>
                     <Link component="button" className={styles.link} to="/signup">Üye Ol</Link>
+                </Button>
+                <Button variant="contained" onClick={logout} color='secondary' sx={{ml:5}}>
+                    Çıkış Yap
                 </Button>
             </Toolbar>
         </AppBar>

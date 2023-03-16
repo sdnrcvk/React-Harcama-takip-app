@@ -14,7 +14,7 @@ export const useLogout=()=>{
         try {
             await signOut(auth);
 
-            dispatch({type:"LOGOUT", payload:res.user})
+            dispatch({type:"LOGOUT"})
             
             setBekliyor(false)
             setHata(null)
