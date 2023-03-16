@@ -3,8 +3,10 @@ import { Button, Container, Typography, FormControl, OutlinedInput,
   InputLabel, InputAdornment, IconButton } from '@mui/material'
 import { useState } from 'react'
 import {Visibility, VisibilityOff} from '@mui/icons-material'
+import { useSignup } from '../../hooks/useSignup'
 
 export default function Signup() {
+  const {signup,hata,bekliyor}=useSignup();
   const [values,setValues]=useState({
     email:"",
     password:"",
@@ -19,7 +21,8 @@ export default function Signup() {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(values);
+    //console.log(values);
+    signup(values.email, values.password, values.username);
   }
 
   const handleClickShowPassword=()=>{
@@ -49,7 +52,11 @@ export default function Signup() {
           <InputLabel htmlFor="username">Kullanıcı Adı</InputLabel>
           <OutlinedInput value={values.username} onChange={handleChange("username")} id="username" label="Username"/>
         </FormControl>
-        <Button variant='contained' type='submit' color='info' size='large' sx={{mt:5}}>Üye Ol</Button>
+        {!bekliyor && <Button variant='contained' type='submit'
+        color='info' size='large' sx={{mt:5}}>Üye Ol</Button>}
+        {bekliyor && <Button disabled variant='contained' type='submit'
+        color='info' size='large' sx={{mt:5}}>Bekliyor</Button>}
+        {hata && <p>{hata}</p>}
       </form>
     </Container>
   )
