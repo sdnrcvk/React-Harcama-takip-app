@@ -4,9 +4,11 @@ import { Button, Container, Typography, FormControl, FilledInput,
 import { useState } from 'react'
 import {Visibility, VisibilityOff} from '@mui/icons-material'
 import { useLogin } from '../../hooks/useLogin'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const {login,hata,bekliyor}=useLogin();
+  const navigate=useNavigate();
 
   const [values,setValues]=useState({
     email:"",
@@ -23,6 +25,7 @@ export default function Login() {
     e.preventDefault();
     //console.log(values);
     login(values.email,values.password);
+    navigate("/");
   }
 
   const handleClickShowPassword=()=>{

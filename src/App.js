@@ -7,8 +7,8 @@ import { Container } from "@mui/system";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
-  const {authIsReady}=useAuthContext();
-
+  const {authIsReady, user}=useAuthContext();
+  
   return (
     <div className="App">
       {authIsReady && (
@@ -16,9 +16,9 @@ function App() {
         <Navbar/>
         <Container>
           <Routes>
-            <Route path="/" exact element={<Home/>}></Route>
-            <Route path="/login" element={<Login/>}></Route>
-            <Route path="/signup" element={<Signup/>}></Route>
+            <Route path="/" exact element={user ? <Home/> : <Login/>}></Route>
+            <Route path="/login" element={!user ? <Login/> : <Home/>}></Route>
+            <Route path="/signup" element={!user ? <Signup/> : <Home/>}></Route>
           </Routes>
         </Container>
       </BrowserRouter>
