@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
@@ -7,6 +7,11 @@ export const useSignup=()=>{
     const [hata,setHata]=useState(null)
     const [bekliyor,setBekliyor]=useState(false)
     const {dispatch}=useAuthContext();
+    const [iptal,setIptal]=useState(false)
+
+    useEffect(()=>{
+        return ()=>setIptal(true)
+    },[])
 
     const signup=async(email, password, displayName)=>{
         setHata(null)
@@ -21,12 +26,16 @@ export const useSignup=()=>{
             await updateProfile(res.user,{displayName})
             dispatch({type:"LOGIN", payload:res.user})
             
-            setBekliyor(false)
-            setHata(null)
+            if(!iptal){
+                setBekliyor(false)
+                setHata(null)
+            }
         } catch (err) {
-            console.log(err.message);
-            setHata(err.message)
-            setBekliyor(false)
+            if(!iptal){
+                console.log(err.message);
+                setHata(err.message)
+                setBekliyor(false)
+            }
         }
     }
 
