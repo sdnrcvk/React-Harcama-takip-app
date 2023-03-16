@@ -55,7 +55,7 @@ export default function Signup() {
         {!bekliyor && <Button variant='contained' type='submit'
         color='info' size='large' sx={{mt:5}}>Üye Ol</Button>}
         {bekliyor && <Button disabled variant='contained' type='submit'
-        color='info' size='large' sx={{mt:5}}>Bekliyor</Button>}
+        color='info' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
         {hata && <p>{hata}</p>}
       </form>
     </Container>

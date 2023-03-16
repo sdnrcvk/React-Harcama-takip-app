@@ -3,8 +3,11 @@ import { Button, Container, Typography, FormControl, FilledInput,
   InputLabel, InputAdornment, IconButton } from '@mui/material'
 import { useState } from 'react'
 import {Visibility, VisibilityOff} from '@mui/icons-material'
+import { useLogin } from '../../hooks/useLogin'
 
 export default function Login() {
+  const {login,hata,bekliyor}=useLogin();
+
   const [values,setValues]=useState({
     email:"",
     password:"",
@@ -18,7 +21,8 @@ export default function Login() {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(values);
+    //console.log(values);
+    login(values.email,values.password);
   }
 
   const handleClickShowPassword=()=>{
@@ -44,7 +48,9 @@ export default function Login() {
               <IconButton aria-label='Toggle Password' onClick={handleClickShowPassword}>{values.showPassword ? <Visibility/> : <VisibilityOff/>}</IconButton>
            </InputAdornment>}/>
         </FormControl>
-        <Button variant='outlined' type='submit' color='info' size='large' sx={{mt:5}}>GİRİŞ</Button>
+        {bekliyor && <Button variant='outlined' disabled type='submit' color='info' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
+        {!bekliyor && <Button variant='outlined' type='submit' color='info' size='large' sx={{mt:5}}>GİRİŞ</Button>}
+        {hata && <p>{hata}</p>}
       </form>
     </Container>
   )
