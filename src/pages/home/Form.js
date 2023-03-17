@@ -1,15 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button,TextField,Typography } from "@mui/material"
+import { useFirestore } from "../../hooks/useFirestore";
 
-export default function Form() {
+export default function Form({uid}) {
     const [baslik,setBaslik]=useState("")
     const [miktar,setMiktar]=useState("");
+    const {belgeEkle,response}=useFirestore("harcamalar");
 
     const handleSubmit=(e)=>{
-        e.preventDefault();
+      e.preventDefault();
 
-        console.log(miktar,baslik);
+      belgeEkle({uid,baslik,miktar});
     }
+
+    useEffect(()=>{
+      console.log(response)
+
+      if(response.basari){
+          setBaslik("")
+          setMiktar("")
+      }
+
+    },[response.basari])
 
   return (
     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
