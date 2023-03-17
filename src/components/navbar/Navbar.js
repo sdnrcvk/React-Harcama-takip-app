@@ -10,14 +10,14 @@ export default function Navbar() {
 
   return (
     <Box sx={{flexGrow:1}}>
-        <AppBar position='static' color='primary'>
+        <AppBar position='static' color='warning'>
             <Toolbar>
                 <Typography variant='h6'component='div' sx={{flexGrow:1}}>
-                    <Link component="button" to="/" className={styles.link}>Harcama Takip App</Link>
+                    <Link component="button" to="/" className={styles.link}>HarcamaTakip</Link>
                 </Typography>
                 {!user && (
                     <>
-                    <Button variant="outlined" color='inherit'>
+                    <Button variant="outlined" color='secondary'>
                         <Link component="button" className={styles.link} to="/login">GİRİŞ YAP</Link>
                     </Button>
                     <Button variant="text" color='secondary'>
