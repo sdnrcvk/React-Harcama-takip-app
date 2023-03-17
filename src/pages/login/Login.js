@@ -51,8 +51,8 @@ export default function Login() {
               <IconButton aria-label='Toggle Password' onClick={handleClickShowPassword}>{values.showPassword ? <Visibility/> : <VisibilityOff/>}</IconButton>
            </InputAdornment>}/>
         </FormControl>
-        {bekliyor && <Button variant='outlined' disabled type='submit' color='info' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
-        {!bekliyor && <Button variant='outlined' type='submit' color='info' size='large' sx={{mt:5}}>GİRİŞ</Button>}
+        {bekliyor && <Button variant='outlined' disabled type='submit' color='secondary' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
+        {!bekliyor && <Button variant='outlined' type='submit' color='secondary' size='large' sx={{mt:5}}>GİRİŞ</Button>}
         {hata && <p>{hata}</p>}
       </form>
     </Container>

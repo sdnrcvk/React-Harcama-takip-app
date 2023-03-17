@@ -57,9 +57,9 @@ export default function Signup() {
           <OutlinedInput value={values.username} onChange={handleChange("username")} id="username" label="Username"/>
         </FormControl>
         {!bekliyor && <Button variant='contained' type='submit'
-        color='info' size='large' sx={{mt:5}}>Üye Ol</Button>}
+        color='secondary' size='large' sx={{mt:5}}>Üye Ol</Button>}
         {bekliyor && <Button disabled variant='contained' type='submit'
-        color='info' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
+        color='secondary' size='large' sx={{mt:5}}>BEKLİYOR</Button>}
         {hata && <p>{hata}</p>}
       </form>
     </Container>

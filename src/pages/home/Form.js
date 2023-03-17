@@ -28,7 +28,7 @@ export default function Form({uid}) {
         <Typography variant="h6" color="darkslateblue">Harcama Bilgisini Giriniz</Typography>
         <TextField label="Harcama Başlık" variant="standard" fullWidth required onChange={(e)=>setBaslik(e.target.value)} 
         value={baslik} />
-        <TextField label="Harcama Miktar" variant="standard" fullWidth required onChange={(e)=>setMiktar(e.target.value)} 
+        <TextField label="Harcama Tutarı" variant="standard" fullWidth required onChange={(e)=>setMiktar(e.target.value)} 
         value={miktar} sx={{my:5}}/>
         <Button type="submit" variant="contained" color="secondary">EKLE</Button>
     </form>

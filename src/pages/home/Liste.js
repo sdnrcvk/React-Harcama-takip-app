@@ -16,7 +16,7 @@ export default function Liste({harcamalar}) {
                         <Delete/>
                     </IconButton>
                 }>
-                    <ListItemText primary={harcama.baslik} secondary={harcama.miktar}></ListItemText>
+                    <ListItemText primary={harcama.baslik} secondary={harcama.miktar+" ₺"}></ListItemText>
                     <Divider/>
                 </ListItem>
             </React.Fragment>
