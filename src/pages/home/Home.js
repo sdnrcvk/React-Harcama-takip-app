@@ -7,7 +7,7 @@ import { useCollection } from '../../hooks/useCollection'
 
 export default function Home() {
   const {user}=useAuthContext();
-  const {belgeler,hata}=useCollection("harcamalar");
+  const {belgeler,hata}=useCollection("harcamalar",["uid","==",user.uid]);
 
   return (
     <Container sx={{mt:8}}>
